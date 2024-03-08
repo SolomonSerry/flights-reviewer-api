@@ -22,6 +22,15 @@ class Api::V1::AirlinesController < ApplicationController
             render json: { error: airline.errors.messages }, status: 422    
         end    
     end
+
+    def create2
+        @airline = Airline.new(params[:airline])
+        if @airline.save
+          render json: @airline
+        else
+          render json: @airline.errors, status: :unprocessable_entity
+        end
+      end
     
     def update
         airline = Airline.find_by(slug: params[:slug])
