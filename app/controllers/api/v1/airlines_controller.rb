@@ -31,6 +31,8 @@ class Api::V1::AirlinesController < ApplicationController
           render json: @airline.errors, status: :unprocessable_entity
         end
       end
+
+    #   testing something again
     
     def update
         airline = Airline.find_by(slug: params[:slug])
