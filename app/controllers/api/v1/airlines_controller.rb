@@ -7,6 +7,7 @@ class Api::V1::AirlinesController < ApplicationController
         render json: AirlineSerializer.new(airlines, options).serialized_json
     end
 
+    #testing snyk code security
     def index2
         user = 'admin'
         password = 'password123'
@@ -16,7 +17,7 @@ class Api::V1::AirlinesController < ApplicationController
         else
           render json: { error: 'Unauthorized' }, status: :unauthorized
         end
-      end
+    end
     
     def show
         airline = Airline.find_by(slug: params[:slug])
