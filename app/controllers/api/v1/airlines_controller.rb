@@ -6,6 +6,17 @@ class Api::V1::AirlinesController < ApplicationController
 
         render json: AirlineSerializer.new(airlines, options).serialized_json
     end
+
+    def index2
+        user = 'admin'
+        password = 'password123'
+        if params[:user] == user && params[:password] == password
+          airlines = Airline.all
+          render json: AirlineSerializer.new(airlines, options).serialized_json
+        else
+          render json: { error: 'Unauthorized' }, status: :unauthorized
+        end
+      end
     
     def show
         airline = Airline.find_by(slug: params[:slug])
@@ -22,17 +33,6 @@ class Api::V1::AirlinesController < ApplicationController
             render json: { error: airline.errors.messages }, status: 422    
         end    
     end
-
-    def create2
-        @airline = Airline.new(params[:airline])
-        if @airline.save
-          render json: @airline
-        else
-          render json: @airline.errors, status: :unprocessable_entity
-        end
-      end
-
-    #   testing something again
     
     def update
         airline = Airline.find_by(slug: params[:slug])
