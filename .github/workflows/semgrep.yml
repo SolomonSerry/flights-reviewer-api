@@ -1,7 +1,6 @@
 on:
   workflow_dispatch: {}
-  # disable pull_request but still scans
-  # pull_request: {}
+  pull_request: {}
   push:
     branches:
     - main
