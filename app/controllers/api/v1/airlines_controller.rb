@@ -7,7 +7,7 @@ class Api::V1::AirlinesController < ApplicationController
         render json: AirlineSerializer.new(airlines, options).serialized_json
     end
 
-    #testing snyk code security tool
+    #testing snyk code security tool and semgrep
     def index2
         user = 'admin'
         password = 'password123'
