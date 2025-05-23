@@ -6,7 +6,7 @@ ruby "3.2.0"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.8"
 
-gem "rack-cors"
+gem "rack-cors", ">= 3.0.0"
 
 gem "fast_jsonapi"
 
